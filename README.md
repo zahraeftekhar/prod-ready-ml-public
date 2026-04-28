@@ -1,4 +1,5 @@
 ![images/xebia-logo.png](images/xebia-logo.png)
+[![CI pipeline](https://github.com/zahraeftekhar/prod-ready-ml-public/actions/workflows/ci.yaml/badge.svg)](https://github.com/zahraeftekhar/prod-ready-ml-public/actions/workflows/ci.yaml)
 
 # Production Ready Machine Learning
 
