@@ -25,7 +25,7 @@ dev = [
 ]
 
 [tool.ruff.lint]
-ignore = ["D100", "D103"]
+ignore = ["D100", "D103", "D104"]
 extend-select = [
   "UP", # pyupgrade
   "D",  # pydocstyle
