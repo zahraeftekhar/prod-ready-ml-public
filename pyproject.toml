@@ -1,0 +1,45 @@
+[project]
+name = "animal-shelter"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "pandas>=3.0.2",
+]
+
+[project.scripts]
+animal-shelter = "animal_shelter:main"
+
+[build-system]
+requires = ["uv_build>=0.11.8,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "mypy>=1.20.2",
+    "pandas-stubs>=3.0.0.260204",
+    "pre-commit>=4.6.0",
+    "ruff>=0.15.12",
+]
+
+[tool.ruff.lint]
+ignore = ["D100", "D103"]
+extend-select = [
+  "UP", # pyupgrade
+  "D",  # pydocstyle
+  "N",  # PEP8 names
+  "I",  # isort
+  "TD"  # flake8 todos
+]
+
+[tool.ruff]
+exclude = [
+    ".git",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+     ".venv"
+     ]
