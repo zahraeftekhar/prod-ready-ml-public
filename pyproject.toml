@@ -5,7 +5,15 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "cli",
+    "fastapi>=0.136.1",
+    "joblib>=1.5.3",
+    "matplotlib>=3.10.9",
     "pandas>=3.0.2",
+    "pydantic-settings>=2.14.0",
+    "scikit-learn>=1.8.0",
+    "typer>=0.25.0",
+    "uvicorn>=0.46.0",
 ]
 
 [project.scripts]
@@ -21,11 +29,12 @@ dev = [
     "mypy>=1.20.2",
     "pandas-stubs>=3.0.0.260204",
     "pre-commit>=4.6.0",
+    "pytest>=9.0.3",
     "ruff>=0.15.12",
 ]
 
 [tool.ruff.lint]
-ignore = ["D100", "D103", "D104"]
+ignore = ["D100", "D103", "D104", "D212", "D203", "D211", "D213", "D105", "D107", "D102", "D101", "D401", "E711", "E402", "D415", "D400", "D205","D415", "D400", "D205"]
 extend-select = [
   "UP", # pyupgrade
   "D",  # pydocstyle
@@ -33,6 +42,15 @@ extend-select = [
   "I",  # isort
   "TD"  # flake8 todos
 ]
+
+[tool.uv.workspace]
+members = [
+    "cli",
+    "packages/cli",
+]
+
+[tool.uv.sources]
+cli = { workspace = true }
 
 [tool.ruff]
 exclude = [

@@ -1,28 +1,24 @@
+import logging
 import re
 
 import pandas as pd
 
+logger = logging.getLogger(__name__)
 
-def load_data(path: str) -> pd.DataFrame:
-    """Load the data and convert the column names.
 
-    Parameters
-    ----------
-    path : str
-        Path to data
+def load_data(path):
+    logger.info(f"Loading data from {path}")
 
-    Returns
-    -------
-    df : pandas.DataFrame
-        DataFrame with data
-
-    """
     df = (
         pd.read_csv(path, parse_dates=["DateTime"])
         .rename(columns=lambda x: x.replace("upon", "Upon"))
         .rename(columns=convert_camel_case)
         .fillna("Unknown")
     )
+
+    logger.info(f"Loaded {len(df)} rows and {len(df.columns)} columns")
+    logger.debug(f"Columns: {list(df.columns)}")
+
     return df
 
 

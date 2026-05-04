@@ -125,8 +125,8 @@ def get_sex(sex_upon_outcome: pd.Series) -> pd.Series:
     sex_upon_outcome = sex_upon_outcome.fillna("").str.lower()
 
     sex = pd.Series("unknown", index=sex_upon_outcome.index)
-    sex.loc[sex_upon_outcome.str.endswith("female")] = "female"
-    sex.loc[sex_upon_outcome.str.endswith("male")] = "male"
+    sex.loc[sex_upon_outcome.str.endswith(" male")] = "male"
+    sex.loc[sex_upon_outcome.str.endswith(" female")] = "female"
 
     return sex
 
