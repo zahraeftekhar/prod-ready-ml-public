@@ -88,3 +88,17 @@ def check_is_dog(animal_type):
         raise RuntimeError("Found pets that are not dogs or cats.")
     is_dog = animal_type.str.lower() == "dog"
     return is_dog
+
+def check_has_name(name):
+    """Check if the animal has a name, otherwise return False.
+    Parameters
+    ----------
+    name : pandas.Series
+        Name of the animal
+    Returns
+    -------
+    result : pandas.Series
+        Has name or not
+    """
+    has_name = name.str.lower() != "unknown"
+    return has_name
